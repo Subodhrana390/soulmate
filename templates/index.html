@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SoulTalk AI 🌸</title>
+  <!-- ✅ Fixed path for CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">🌸 SoulTalk AI</div>
+    <nav>
+      <button class="nav active" data-screen="notepad">Notepad</button>
+      <button class="nav" data-screen="chat">Chat Assistant</button>
+      <button class="nav" data-screen="affirmations">Affirmations</button>
+      <button class="nav" data-screen="health">Health</button>
+      <button class="nav" data-screen="music">Music Mood</button>
+      <button class="nav" data-screen="meditation">Meditation</button>
+    </nav>
+    <footer>v1.0 • made with 💜</footer>
+  </aside>
+
+  <main class="content">
+    <!-- NOTEPAD -->
+    <section id="notepad" class="screen visible">
+      <h1>📝 Write Your Thoughts</h1>
+      <p class="muted">Saved privately in your browser (localStorage).</p>
+      <textarea id="notes" rows="8" placeholder="How are you feeling today?"></textarea>
+      <div class="row">
+        <button id="saveNotes" class="btn primary">Save My Thoughts</button>
+        <button id="clearNotes" class="btn ghost">Clear</button>
+      </div>
+      <p id="notesStatus" class="status"></p>
+    </section>
+
+    <!-- CHAT -->
+    <section id="chat" class="screen">
+      <h1>💬 Chat Assistant</h1>
+      <div class="toolbar">
+        <label class="chip"><input type="radio" name="style" value="Friendly" checked /> Friendly</label>
+        <label class="chip"><input type="radio" name="style" value="Motivational" /> Motivational</label>
+        <label class="chip"><input type="radio" name="style" value="Therapist" /> Therapist</label>
+      </div>
+      <div id="chatWindow" class="chat-window"></div>
+      <div class="input-row">
+        <button id="micBtn" title="Speak" class="icon-btn">🎙️</button>
+        <input id="chatInput" type="text" placeholder="Type your message…" />
+        <button id="sendBtn" class="btn primary">Send</button>
+      </div>
+      <p class="muted small">Tip: If you use the microphone, the assistant replies with voice.</p>
+    </section>
+
+    <!-- AFFIRMATIONS -->
+    <section id="affirmations" class="screen">
+      <h1>🌈 Positive Affirmations</h1>
+      <p id="affirmation" class="big"></p>
+      <button id="nextAffirmation" class="btn primary">Show Affirmation</button>
+    </section>
+
+    <!-- HEALTH -->
+    <section id="health" class="screen">
+      <h1>🍀 Health & Wellness Tips</h1>
+      <p id="healthTip" class="big"></p>
+      <button id="nextTip" class="btn primary">Show Health Tip</button>
+    </section>
+
+    <!-- MUSIC -->
+    <section id="music" class="screen">
+      <h1>🎵 Music by Mood</h1>
+      <label for="moodSlider" class="muted">How do you feel?</label>
+      <input id="moodSlider" type="range" min="0" max="10" value="5" />
+      <div class="row">
+        <span id="moodEmoji" class="emoji">🙂</span>
+        <span id="moodLabel" class="muted">Balanced</span>
+      </div>
+      <div id="songList" class="cards"></div>
+    </section>
+
+    <!-- MEDITATION -->
+    <section id="meditation" class="screen">
+      <h1>🧘 Breathing Exercise (4-7-8)</h1>
+      <div id="timerCircle" class="circle">Ready</div>
+      <button id="startBreath" class="btn primary">Start 1 Cycle</button>
+      <p class="muted small">Inhale 4s → Hold 7s → Exhale 8s</p>
+    </section>
+  </main>
+
+  <!-- ✅ Fixed path for JS -->
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
